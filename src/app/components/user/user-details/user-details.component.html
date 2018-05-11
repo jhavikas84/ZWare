@@ -1,0 +1,47 @@
+<form class="user-form" #userForm="ngForm" (ngSubmit)="onSubmit(userForm)">
+  <input type="hidden" name="userId" #userId="ngModel" [(ngModel)]="userService.selectedUser.userId">  
+  <!-- {{userService.selectedUser.userId}} -->
+  <div class="form-row">
+    <div class="form-group col-md-6">
+      <input class="form-control" name="firstName" #firstName="ngModel" [(ngModel)]="userService.selectedUser.firstName"
+        placeholder="First Name" required>
+      <div class="validation-error" *ngIf="firstName.invalid && firstName.touched">This Field is Required.</div>
+    </div>
+    <div class="form-group col-md-6">
+      <input class="form-control" name="lastName" #lastName="ngModel" [(ngModel)]="userService.selectedUser.lastName" placeholder="Last Name"
+        required>
+      <div class="validation-error" *ngIf="lastName.invalid && lastName.touched">This Field is Required.</div>
+    </div>
+  </div>
+  <div class="form-group">
+    <input class="form-control" name="displayName" #displayName="ngModel" [(ngModel)]="userService.selectedUser.displayName" placeholder="Display Name">
+  </div>
+  <div class="form-row">
+    <div class="form-group col-md-6">
+      <input class="form-control" name="email" #email="ngModel" [(ngModel)]="userService.selectedUser.email" placeholder="Email" required>
+      <div class="validation-error" *ngIf="email.invalid && email.touched">This Field is Required.</div>
+    </div>
+    <div class="form-group col-md-6">
+      <input class="form-control" name="description" #description="ngModel" [(ngModel)]="userService.selectedUser.description" placeholder="Meal preference" required>
+      <div class="validation-error" *ngIf="description.invalid && description.touched">This Field is Required.</div>
+    </div>
+    <div class="form-group col-md-6">
+      <input class="form-control" name="department" #department="ngModel" [(ngModel)]="userService.selectedUser.department" placeholder="Department" required>
+      <div class="validation-error" *ngIf="department.invalid && department.touched">This Field is Required.</div>
+    </div>
+    <div class="form-group col-md-6">
+      <input class="form-control" name="team" #team="ngModel" [(ngModel)]="userService.selectedUser.team" placeholder="Team" required>
+      <div class="validation-error" *ngIf="team.invalid && team.touched">This Field is Required.</div>
+    </div>
+  </div>
+  <div class="form-row">
+    <div class="form-group col-md-8">
+      <button [disabled]="!userForm.valid" type="submit" class="btn btn-lg btn-block btn-success">
+        <i class="fa fa-floppy-o"></i> Submit</button>
+    </div>
+    <div class="form-group col-md-4">
+      <button type="button" class="btn btn-lg btn-block btn-warning" (click)="resetForm(userForm)">
+        <i class="fa fa-repeat"></i> Reset</button>
+    </div>
+  </div>
+</form>
