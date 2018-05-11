@@ -1,4 +1,4 @@
-<form class="user-form" #userForm="ngForm" (ngSubmit)="onSubmit(userForm)">
+<form class="user-form" #userForm="ngForm" (ngSubmit)="onSubmitAddToStore(userForm)">    
   <input type="hidden" name="userId" #userId="ngModel" [(ngModel)]="userService.selectedUser.userId">  
   <!-- {{userService.selectedUser.userId}} -->
   <div class="form-row">

@@ -6,17 +6,20 @@
     <th>Department</th>
     <th>Team</th>
   </tr>
-  <tr *ngFor="let user of userService.userList">
+  <tr *ngFor= "let user of userList | async; let i = index">
+  <!-- "let user of userService.userList"> -->
     <td>{{user.displayName}}</td>
     <td>{{user.email}}</td>
     <td>{{user.description}}</td>
     <td>{{user.department}}</td>
     <td>{{user.team}}</td>
     <td>
-      <a class="btn" (click)="showForEdit(user)">
+      <a class="btn" (click)="showForEditFromStore(user)">
+      <!-- "showForEdit(user)"> -->
         <i class="fa fa-pencil-square-o"></i>
       </a>
-      <a class="btn text-danger" (click)="onDelete(user.userId)">
+      <a class="btn text-danger" (click)="onDeleteFromStore(i)">
+      <!-- "onDelete(user.userId)"> -->
         <i class="fa fa-trash-o"></i>
       </a>
     </td>

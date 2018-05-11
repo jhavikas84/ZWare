@@ -4,7 +4,8 @@ import { FormsModule } from '@angular/forms'
 import { HttpModule } from '@angular/http'
 import { ToastrModule } from 'ngx-toastr';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-
+import { StoreModule } from '@ngrx/store';
+import { reducer } from 'src/app/reducers/user-reducer';
 
 import { UserService } from '../app/services/user-service.service';
 
@@ -25,7 +26,10 @@ import { UserListComponent } from './components/user/user-list/user-list.compone
     FormsModule,
     HttpModule,
     BrowserAnimationsModule,  
-    ToastrModule.forRoot(),  
+    ToastrModule.forRoot(),
+    StoreModule.forRoot({
+      users: reducer
+    })  
   ],
   providers: [
     UserService
